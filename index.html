@@ -52,15 +52,15 @@
    </section><!-- Editorial Strip -->
    <div class="w-full flex justify-center gap-12 md:gap-24 py-8 text-center anim-fade-up delay-4" style="border-top: 1px solid #D5CFC7; border-bottom: 1px solid #D5CFC7;">
     <div>
-     <span id="years" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <span id="years" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">12</span>
      <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Years</p>
     </div>
     <div>
-     <span id="clients" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <span id="clients" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">40+K</span>
      <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Clients</p>
     </div>
     <div>
-     <span id="quality" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <span id="quality" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">100%</span>
      <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Genuine Leather</p>
     </div>
    </div><!-- Products -->
@@ -316,41 +316,6 @@
       observer.observe(el);
     });
   </script>
-  <script>
-    function animateCounter(el, target, duration, suffix = "") {
-      let start = 0;
-      const increment = target / (duration / 16);
-  
-      function update() {
-        start += increment;
-        if (start < target) {
-          el.textContent = Math.floor(start) + suffix;
-          requestAnimationFrame(update);
-        } else {
-          el.textContent = target + suffix;
-        }
-      }
-  
-      update();
-    }
-  
-    const stats = document.querySelectorAll("#years, #clients, #quality");
-    let started = false;
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !started) {
-          started = true;
-  
-          animateCounter(document.getElementById("years"), 12, 1200);
-          animateCounter(document.getElementById("clients"), 40, 1500, "k+");
-          animateCounter(document.getElementById("quality"), 100, 1200, "%");
-        }
-      });
-    }, { threshold: 0.5 });
-  
-    observer.observe(document.querySelector("#years").parentElement.parentElement);
- </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebaefa0343ba830',t:'MTc3NjA4ODE4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
  </body>
 </html>
