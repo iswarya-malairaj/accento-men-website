@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .font-display { font-family: 'Cormorant Garamond', serif; }
+    .font-body { font-family: 'Outfit', sans-serif; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .anim-fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
+    .anim-fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+    .delay-5 { animation-delay: 0.75s; }
+
+    .product-card:hover .product-img { transform: scale(1.03); }
+    .product-card:hover .shop-btn { letter-spacing: 0.2em; }
+
+    .divider-line { width: 60px; height: 1px; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body" style="background-color: #F5F2ED; color: #2C3340;">
+  <div id="app" class="w-full h-full overflow-auto"><!-- Nav -->
+   <nav class="w-full flex items-center justify-between px-6 md:px-16 py-6 anim-fade-in" style="background-color: #F5F2ED;">
+    <div id="nav-brand" class="font-display text-2xl md:text-3xl font-light tracking-widest" style="color: #1B2A4A;">
+     ACCENTO MEN
+    </div>
+    <div class="flex items-center gap-6"><a href="#products" class="font-body text-xs tracking-widest uppercase hidden md:block" style="color: #2C3340;">Collection</a> <a href="#why" class="font-body text-xs tracking-widest uppercase hidden md:block" style="color: #2C3340;">About</a> <button id="hero-nav-btn" class="font-body text-xs tracking-widest uppercase px-5 py-2.5 transition-all duration-300 hover:opacity-80" style="background-color: #1B2A4A; color: #F5F2ED;">Shop Now</button>
+    </div>
+   </nav><!-- Hero -->
+   <section class="w-full px-6 md:px-16 py-16 md:py-28 flex flex-col items-center text-center">
+    <div class="divider-line anim-fade-up" style="background-color: #1B2A4A;"></div>
+    <h1 id="hero-headline" class="font-display text-5xl md:text-8xl font-light tracking-wide mt-8 anim-fade-up delay-1" style="color: #1B2A4A; line-height: 1.05;">Refined Essentials</h1>
+    <p id="hero-subtext" class="font-body text-sm md:text-base font-light tracking-wide mt-6 max-w-lg anim-fade-up delay-2" style="color: #5A6275; line-height: 1.8;">Crafted for the modern gentleman. Timepieces and leather goods designed with intention, built to endure.</p><button id="hero-cta" class="mt-10 font-body text-xs tracking-widest uppercase px-10 py-4 border transition-all duration-500 hover:tracking-[0.25em] anim-fade-up delay-3" style="border-color: #1B2A4A; color: #1B2A4A; background: transparent;">Explore the Collection</button>
+   </section><!-- Editorial Strip -->
+   <div class="w-full flex justify-center gap-12 md:gap-24 py-8 text-center anim-fade-up delay-4" style="border-top: 1px solid #D5CFC7; border-bottom: 1px solid #D5CFC7;">
+    <div>
+     <span id="years" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Years</p>
+    </div>
+    <div>
+     <span id="clients" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Clients</p>
+    </div>
+    <div>
+     <span id="quality" class="font-display text-3xl md:text-4xl font-light" style="color: #1B2A4A;">0</span>
+     <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Genuine Leather</p>
+    </div>
+   </div><!-- Products -->
+   <section id="products" class="w-full px-6 md:px-16 py-20 md:py-28">
+    <div class="text-center mb-16">
+     <p class="text-[10px] tracking-[0.3em] uppercase" style="color: #5A6275;">Curated Selection</p>
+     <h2 id="products-heading" class="font-display text-4xl md:text-6xl font-light mt-3" style="color: #1B2A4A;">The Collection</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"><!-- Product 1 -->
+     <div class="product-card group cursor-pointer">
+      <div class="overflow-hidden aspect-[4/5] flex items-center justify-center" style="background-color: #E8E3DB;">
+       <div class="product-img transition-transform duration-700 flex flex-col items-center justify-center text-center p-10">
+        <svg viewbox="0 0 120 120" width="100" height="100" fill="none" stroke="#1B2A4A" stroke-width="1.2"><circle cx="60" cy="60" r="50" /><circle cx="60" cy="60" r="45" /> <line x1="60" y1="20" x2="60" y2="60" /><line x1="60" y1="60" x2="80" y2="60" /> <circle cx="60" cy="60" r="2" fill="#1B2A4A" /> <line x1="60" y1="10" x2="60" y2="15" /><line x1="60" y1="105" x2="60" y2="110" /> <line x1="10" y1="60" x2="15" y2="60" /><line x1="105" y1="60" x2="110" y2="60" />
+        </svg>
+        <p class="font-display text-lg mt-6" style="color: #1B2A4A;">The Meridian</p>
+        <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Automatic Timepiece</p>
+       </div>
+      </div>
+      <div class="flex items-center justify-between mt-4">
+       <div>
+        <p class="font-display text-xl" style="color: #1B2A4A;">The Meridian Watch</p>
+        <p class="text-xs mt-0.5" style="color: #5A6275;">$485</p>
+       </div><span class="shop-btn text-[10px] tracking-widest uppercase transition-all duration-500" style="color: #1B2A4A;">Shop →</span>
+      </div>
+     </div><!-- Product 2 -->
+     <div class="product-card group cursor-pointer">
+      <div class="overflow-hidden aspect-[4/5] flex items-center justify-center" style="background-color: #E8E3DB;">
+       <div class="product-img transition-transform duration-700 flex flex-col items-center justify-center text-center p-10">
+        <svg viewbox="0 0 120 100" width="110" height="90" fill="none" stroke="#1B2A4A" stroke-width="1.2"><rect x="10" y="15" width="100" height="65" rx="5" /> <rect x="15" y="20" width="90" height="55" rx="3" /> <line x1="25" y1="40" x2="60" y2="40" /><line x1="25" y1="50" x2="50" y2="50" /> <rect x="70" y="35" width="25" height="20" rx="2" /> <path d="M10 30 Q5 15 30 10 L90 10 Q115 15 110 30" />
+        </svg>
+        <p class="font-display text-lg mt-6" style="color: #1B2A4A;">The Folio</p>
+        <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Full-grain Leather</p>
+       </div>
+      </div>
+      <div class="flex items-center justify-between mt-4">
+       <div>
+        <p class="font-display text-xl" style="color: #1B2A4A;">The Folio Wallet</p>
+        <p class="text-xs mt-0.5" style="color: #5A6275;">$195</p>
+       </div><span class="shop-btn text-[10px] tracking-widest uppercase transition-all duration-500" style="color: #1B2A4A;">Shop →</span>
+      </div>
+     </div><!-- Product 3 -->
+     <div class="product-card group cursor-pointer">
+      <div class="overflow-hidden aspect-[4/5] flex items-center justify-center" style="background-color: #E8E3DB;">
+       <div class="product-img transition-transform duration-700 flex flex-col items-center justify-center text-center p-10">
+        <svg viewbox="0 0 100 120" width="80" height="100" fill="none" stroke="#1B2A4A" stroke-width="1.2"><rect x="15" y="30" width="70" height="85" rx="4" /> <rect x="20" y="35" width="60" height="75" rx="2" /> <line x1="15" y1="50" x2="85" y2="50" /> <path d="M35 30 Q35 10 50 10 Q65 10 65 30" /> <circle cx="50" cy="70" r="3" fill="#1B2A4A" />
+        </svg>
+        <p class="font-display text-lg mt-6" style="color: #1B2A4A;">The Voyager</p>
+        <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Weekend Bag</p>
+       </div>
+      </div>
+      <div class="flex items-center justify-between mt-4">
+       <div>
+        <p class="font-display text-xl" style="color: #1B2A4A;">The Voyager Bag</p>
+        <p class="text-xs mt-0.5" style="color: #5A6275;">$620</p>
+       </div><span class="shop-btn text-[10px] tracking-widest uppercase transition-all duration-500" style="color: #1B2A4A;">Shop →</span>
+      </div>
+     </div><!-- Product 4 -->
+     <div class="product-card group cursor-pointer">
+      <div class="overflow-hidden aspect-[4/5] flex items-center justify-center" style="background-color: #E8E3DB;">
+       <div class="product-img transition-transform duration-700 flex flex-col items-center justify-center text-center p-10">
+        <svg viewbox="0 0 120 40" width="110" height="35" fill="none" stroke="#1B2A4A" stroke-width="1.2"><path d="M5 20 Q10 8 30 8 L90 8 Q110 8 115 20 Q110 32 90 32 L30 32 Q10 32 5 20Z" /> <rect x="50" y="12" width="20" height="16" rx="3" /> <circle cx="60" cy="20" r="2" fill="#1B2A4A" />
+        </svg>
+        <p class="font-display text-lg mt-6" style="color: #1B2A4A;">The Garrison</p>
+        <p class="text-[10px] tracking-widest uppercase mt-1" style="color: #5A6275;">Italian Leather Belt</p>
+       </div>
+      </div>
+      <div class="flex items-center justify-between mt-4">
+       <div>
+        <p class="font-display text-xl" style="color: #1B2A4A;">The Garrison Belt</p>
+        <p class="text-xs mt-0.5" style="color: #5A6275;">$145</p>
+       </div><span class="shop-btn text-[10px] tracking-widest uppercase transition-all duration-500" style="color: #1B2A4A;">Shop →</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- Why Section -->
+   <section id="why" class="w-full px-6 md:px-16 py-20 md:py-28" style="background-color: #1B2A4A;">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-16">
+      <p class="text-[10px] tracking-[0.3em] uppercase" style="color: #8A92A4;">The Difference</p>
+      <h2 id="why-heading" class="font-display text-4xl md:text-6xl font-light mt-3" style="color: #F5F2ED;">Why Accento Men</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div class="text-center">
+       <div class="flex justify-center mb-5">
+        <i data-lucide="gem" style="width:28px;height:28px;color:#D5CFC7;"></i>
+       </div>
+       <h3 class="font-display text-xl mb-3" style="color: #F5F2ED;">Material Integrity</h3>
+       <p class="text-xs leading-relaxed font-light" style="color: #8A92A4;">Every piece begins with ethically sourced, full-grain leather and Swiss-grade movements. No shortcuts.</p>
+      </div>
+      <div class="text-center">
+       <div class="flex justify-center mb-5">
+        <i data-lucide="ruler" style="width:28px;height:28px;color:#D5CFC7;"></i>
+       </div>
+       <h3 class="font-display text-xl mb-3" style="color: #F5F2ED;">Artisan Crafted</h3>
+       <p class="text-xs leading-relaxed font-light" style="color: #8A92A4;">Hand-finished by master craftsmen in small batches. Each item carries the mark of deliberate, patient work.</p>
+      </div>
+      <div class="text-center">
+       <div class="flex justify-center mb-5">
+        <i data-lucide="shield" style="width:28px;height:28px;color:#D5CFC7;"></i>
+       </div>
+       <h3 class="font-display text-xl mb-3" style="color: #F5F2ED;">Lifetime Guarantee</h3>
+       <p class="text-xs leading-relaxed font-light" style="color: #8A92A4;">We stand behind every product indefinitely. Complimentary repairs and reconditioning for life.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Banner -->
+   <section class="w-full px-6 md:px-16 py-20 md:py-28 text-center" style="background-color: #F5F2ED;">
+    <p class="text-[10px] tracking-[0.3em] uppercase" style="color: #5A6275;">Limited Edition</p>
+    <h2 class="font-display text-4xl md:text-6xl font-light mt-3" style="color: #1B2A4A;">Elevate Your Standard</h2>
+    <p class="text-sm font-light mt-4 max-w-md mx-auto" style="color: #5A6275;">Join 40,000+ discerning men who refuse to compromise on quality.</p><button id="cta-btn" class="mt-10 font-body text-xs tracking-widest uppercase px-12 py-4 transition-all duration-500 hover:opacity-80" style="background-color: #1B2A4A; color: #F5F2ED;">Shop the Collection</button>
+   </section><!-- Footer -->
+   <footer class="w-full px-6 md:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top: 1px solid #D5CFC7; background-color: #F5F2ED;">
+    <p id="footer-text" class="text-[10px] tracking-widest uppercase" style="color: #5A6275;">© 2024 Accento Men All rights reserved.</p>
+    <div class="flex gap-6"><i data-lucide="instagram" style="width:16px;height:16px;color:#5A6275;" class="cursor-pointer hover:opacity-60 transition-opacity"></i> <i data-lucide="twitter" style="width:16px;height:16px;color:#5A6275;" class="cursor-pointer hover:opacity-60 transition-opacity"></i> <i data-lucide="linkedin" style="width:16px;height:16px;color:#5A6275;" class="cursor-pointer hover:opacity-60 transition-opacity"></i>
+    </div>
+   </footer>
+  </div>
+  <script>
+    lucide.createIcons();
+
+    const defaultConfig = {
+      brand_name: "ACCENTO MEN",
+      hero_headline: "Refined Essentials",
+      hero_subtext: "Crafted for the modern gentleman. Timepieces and leather goods designed with intention, built to endure.",
+      products_heading: "The Collection",
+      why_heading: "Why Accento Men",
+      footer_text: "© 2024 ACCENTO MEN All rights reserved.",
+      background_color: "#F5F2ED",
+      surface_color: "#E8E3DB",
+      text_color: "#2C3340",
+      primary_action_color: "#1B2A4A",
+      secondary_action_color: "#5A6275",
+      font_family: "Cormorant Garamond",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const c = key => config[key] || defaultConfig[key];
+      const font = c('font_family');
+      const baseSize = c('font_size');
+      const displayStack = `${font}, serif`;
+      const bodyStack = `Outfit, sans-serif`;
+
+      // Colors
+      const bg = c('background_color');
+      const surface = c('surface_color');
+      const text = c('text_color');
+      const primary = c('primary_action_color');
+      const secondary = c('secondary_action_color');
+
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = text;
+
+      document.getElementById('nav-brand').textContent = c('brand_name');
+      document.getElementById('nav-brand').style.color = primary;
+      document.getElementById('nav-brand').style.fontFamily = displayStack;
+
+      document.getElementById('hero-headline').textContent = c('hero_headline');
+      document.getElementById('hero-headline').style.color = primary;
+      document.getElementById('hero-headline').style.fontFamily = displayStack;
+      document.getElementById('hero-headline').style.fontSize = `${baseSize * 4.5}px`;
+
+      document.getElementById('hero-subtext').textContent = c('hero_subtext');
+      document.getElementById('hero-subtext').style.color = secondary;
+      document.getElementById('hero-subtext').style.fontSize = `${baseSize * 0.9}px`;
+
+      document.getElementById('hero-cta').style.borderColor = primary;
+      document.getElementById('hero-cta').style.color = primary;
+      document.getElementById('hero-nav-btn').style.backgroundColor = primary;
+      document.getElementById('hero-nav-btn').style.color = bg;
+
+      document.getElementById('products-heading').textContent = c('products_heading');
+      document.getElementById('products-heading').style.color = primary;
+      document.getElementById('products-heading').style.fontFamily = displayStack;
+      document.getElementById('products-heading').style.fontSize = `${baseSize * 3.5}px`;
+
+      // Product cards surfaces
+      document.querySelectorAll('.product-card > div:first-child').forEach(el => {
+        el.style.backgroundColor = surface;
+      });
+      document.querySelectorAll('.product-card .font-display').forEach(el => {
+        el.style.color = primary;
+        el.style.fontFamily = displayStack;
+      });
+
+      // Why section
+      const whySection = document.getElementById('why');
+      whySection.style.backgroundColor = primary;
+      document.getElementById('why-heading').textContent = c('why_heading');
+      document.getElementById('why-heading').style.color = bg;
+      document.getElementById('why-heading').style.fontFamily = displayStack;
+      document.getElementById('why-heading').style.fontSize = `${baseSize * 3.5}px`;
+      whySection.querySelectorAll('h3').forEach(el => {
+        el.style.color = bg;
+        el.style.fontFamily = displayStack;
+      });
+
+      document.getElementById('cta-btn').style.backgroundColor = primary;
+      document.getElementById('cta-btn').style.color = bg;
+
+      document.getElementById('footer-text').textContent = c('footer_text');
+      document.getElementById('footer-text').style.color = secondary;
+
+      // Nav links color
+      document.querySelectorAll('nav a').forEach(el => el.style.color = text);
+    }
+
+    function mapToCapabilities(config) {
+      const c = key => config[key] || defaultConfig[key];
+      const make = (key) => ({
+        get: () => c(key),
+        set: (v) => { config[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+      });
+      return {
+        recolorables: [
+          make('background_color'),
+          make('surface_color'),
+          make('text_color'),
+          make('primary_action_color'),
+          make('secondary_action_color')
+        ],
+        borderables: [],
+        fontEditable: make('font_family'),
+        fontSizeable: make('font_size')
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      const c = key => config[key] || defaultConfig[key];
+      return new Map([
+        ["brand_name", c("brand_name")],
+        ["hero_headline", c("hero_headline")],
+        ["hero_subtext", c("hero_subtext")],
+        ["products_heading", c("products_heading")],
+        ["why_heading", c("why_heading")],
+        ["footer_text", c("footer_text")]
+      ]);
+    }
+
+    window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeUp 0.7s ease-out forwards';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.product-card').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+  <script>
+    function animateCounter(el, target, duration, suffix = "") {
+      let start = 0;
+      const increment = target / (duration / 16);
+  
+      function update() {
+        start += increment;
+        if (start < target) {
+          el.textContent = Math.floor(start) + suffix;
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+  
+      update();
+    }
+  
+    const stats = document.querySelectorAll("#years, #clients, #quality");
+    let started = false;
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+  
+          animateCounter(document.getElementById("years"), 12, 1200);
+          animateCounter(document.getElementById("clients"), 40, 1500, "k+");
+          animateCounter(document.getElementById("quality"), 100, 1200, "%");
+        }
+      });
+    }, { threshold: 0.5 });
+  
+    observer.observe(document.querySelector("#years").parentElement.parentElement);
+ </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebaefa0343ba830',t:'MTc3NjA4ODE4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ </body>
+</html>
